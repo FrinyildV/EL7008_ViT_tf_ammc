@@ -146,6 +146,8 @@ def train_funcion(red,criterio,optimizador,ruta_guardado_red,ruta_guardado_optim
 
 from sklearn import metrics as metsk
 import matplotlib.pyplot as plt
+
+from .modelo.vit import ViT
 def plot_confusion_matrix(labels, pred_labels, classes,normalizacion, title="Confusion Matrix"):
 
     fig = plt.figure(figsize = (10, 10))
