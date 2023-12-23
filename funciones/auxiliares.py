@@ -118,18 +118,18 @@ def train_funcion(red,criterio,optimizador,ruta_guardado_red,ruta_guardado_optim
       # Test loop
       with torch.no_grad():
           correct, total = 0, 0
-          test_loss = 0.0
+          val_loss = 0.0
           for batch in tqdm(val_loader, desc="Testing in validation"):
               x, y = batch
               x, y = x.to(device), y.to(device)
               y_hat = model(x)
               loss = criterion(y_hat, y)
-              test_loss += loss.detach().cpu().item() / len(test_loader)
+              val_loss += loss.detach().cpu().item() / len(val_loader)
 
               correct += torch.sum(torch.argmax(y_hat, dim=1) == y).detach().cpu().item()
               total += len(x)
-          loss_val_history.append(test_loss)
-          print(f"Val loss: {test_loss:.2f}")
+          loss_val_history.append(val_loss)
+          print(f"Val loss: {val_loss:.2f}")
           print(f"Val accuracy: {correct / total * 100:.2f}%")
 
   torch.save(model.state_dict(), ruta_guardado_red)
