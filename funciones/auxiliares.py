@@ -7,6 +7,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 import matplotlib.pyplot as plt
 from tqdm import tqdm, trange
+import cv2 
 
 class Lector(Dataset):
     def __init__(self, data, modo,ruta_images, transform=None):
