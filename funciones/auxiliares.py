@@ -6,6 +6,7 @@ from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms as transforms
 from PIL import Image
 import matplotlib.pyplot as plt
+from tqdm import tqdm, trange
 
 class Lector(Dataset):
     def __init__(self, data, modo,ruta_images, transform=None):
