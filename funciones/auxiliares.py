@@ -84,7 +84,8 @@ class Lector(Dataset):
 
 def train_funcion(red,criterio,optimizador,ruta_guardado_red,ruta_guardado_optimizer,
                   dataloader_train, dataloader_val,titulo_grafico_loss,n_epoch):
-
+  
+  device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
   model = red
   criterion = criterio
   optimizer = optimizador
@@ -143,7 +144,7 @@ def train_funcion(red,criterio,optimizador,ruta_guardado_red,ruta_guardado_optim
   plt.legend()
   plt.show()
 
-  from sklearn import metrics as metsk
+from sklearn import metrics as metsk
 import matplotlib.pyplot as plt
 def plot_confusion_matrix(labels, pred_labels, classes,normalizacion, title="Confusion Matrix"):
 
