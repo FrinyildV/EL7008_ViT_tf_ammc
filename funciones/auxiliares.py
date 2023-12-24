@@ -150,12 +150,12 @@ import matplotlib.pyplot as plt
 from modelo.vit import ViT
 def plot_confusion_matrix(labels, pred_labels, classes,normalizacion, title="Confusion Matrix"):
 
-    fig = plt.figure(figsize = (10, 10))
+    fig = plt.figure(figsize = (12, 12))
     ax = fig.add_subplot(1, 1, 1)
     cm = metsk.confusion_matrix(labels, pred_labels, normalize=normalizacion)
     disp =  metsk.ConfusionMatrixDisplay(cm, display_labels=classes)
 
-    disp.plot(cmap='Blues', ax=ax)
+    disp.plot(cmap='Blues', ax=ax, values_format=".2f")
     ax.set_title(title)
     # Rotar las etiquetas del eje x en 45 grados
     plt.xticks(rotation=45, ha="right")
